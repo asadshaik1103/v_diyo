@@ -1,0 +1,80 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/v-diyo/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/v-diyo",
+        "index": "apps/v-diyo/src/index.html",
+        "baseHref": "/",
+        "main": "apps/v-diyo/src/main.tsx",
+        "polyfills": "apps/v-diyo/src/polyfills.ts",
+        "tsConfig": "apps/v-diyo/tsconfig.app.json",
+        "assets": ["apps/v-diyo/src/favicon.ico", "apps/v-diyo/src/assets"],
+        "styles": ["apps/v-diyo/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/v-diyo/src/environments/environment.ts",
+              "with": "apps/v-diyo/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "v-diyo:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "v-diyo:build:development"
+        },
+        "production": {
+          "buildTarget": "v-diyo:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/v-diyo/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/v-diyo"],
+      "options": {
+        "jestConfig": "apps/v-diyo/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

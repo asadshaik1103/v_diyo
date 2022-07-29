@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "v-diyo": "apps/v-diyo",
+    "v-diyo-e2e": "apps/v-diyo-e2e"
+  }
+}
