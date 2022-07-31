@@ -6,7 +6,7 @@
     "start": "npm run dev",
     "build": "nx build",
     "test": "nx test",
-    "dev": "concurrently --kill-others \"npx nx serve\" \"npx nx serve api\""
+    "dev": "npx run concurrently --kill-others \"npx nx serve\" \"npx nx serve api\""
   },
   "private": true,
   "dependencies": {
