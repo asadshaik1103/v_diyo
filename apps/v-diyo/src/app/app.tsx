@@ -9,6 +9,7 @@ import { io, Socket } from "socket.io-client";
 
 // TODO set url from environment variable
 // const socket = connect("http://localhost:3333/");
+// const socket: Socket<any> = io("http://localhost:3333/");
 const socket: Socket<any> = io("http://localhost:3333/");
 
 
