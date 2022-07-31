@@ -9,10 +9,9 @@ import { Server, Socket } from 'socket.io';
 import * as socketio from "socket.io";
 import * as path from "path";
 
-// const CLIENT_BUILD_PATH = path.join(__dirname, '../v-diyo')
-
+const CLIENT_BUILD_PATH = path.join(__dirname, '../v-diyo')
 const app = express();
-
+app.use(express.static(CLIENT_BUILD_PATH));
 var cors = require('cors');
 
 // "data" comes from front end
@@ -55,6 +54,10 @@ io.on("connection", function(socket: any) {
 
 app.get('/api', (req, res) => {
   res.send({ message: 'Welcome to api!' });
+});
+
+app.get('*', (request, response) => {
+  response.sendFile(path.join(CLIENT_BUILD_PATH, 'index.html'));
 });
 
 // app.get('*', (request, response) => {

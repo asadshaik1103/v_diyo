@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "npx nx serve",
-    "build": "nx build",
+    "start": "node dist/apps/api/main.js",
+    "build": "yarn nx run-many --target=build --projects=v-diyo,api --parallel=true",
     "test": "nx test",
     "dev": "npx run concurrently --kill-others \"npx nx serve\" \"npx nx serve api\""
   },
