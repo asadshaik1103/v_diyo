@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node dist/apps/api/main.js",
-    "build": "npm nx run-many --target=build --projects=v-diyo,api --parallel=true",
+    "build": "yarn nx run-many --target=build --projects=v-diyo,api --parallel=true",
     "test": "nx test",
     "dev": "npx run concurrently --kill-others \"npx nx serve\" \"npx nx serve api\""
   },
