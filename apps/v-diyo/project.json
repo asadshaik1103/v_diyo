@@ -48,7 +48,8 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "v-diyo:build",
-        "hmr": true
+        "hmr": true,
+        "proxyConfig": "apps/v-diyo/proxy.conf.json"
       },
       "configurations": {
         "development": {

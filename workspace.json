@@ -2,6 +2,7 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "api": "apps/api",
     "v-diyo": "apps/v-diyo",
     "v-diyo-e2e": "apps/v-diyo-e2e"
   }
